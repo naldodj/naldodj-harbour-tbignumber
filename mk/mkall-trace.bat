@@ -22,6 +22,7 @@ SETLOCAL ENABLEEXTENSIONS
             SET HB_CCPATH=
             SET HB_PLATFORM=
             SET HB_COMPILER=
+            SET HB_BUILD_SHARED=
             call mk.bat
             for /f %%e in (env_mkall.txt) do (
                 SET %%e
@@ -35,6 +36,7 @@ SETLOCAL ENABLEEXTENSIONS
             SET HB_TR_SYSOUT=Y
             SET HB_TR_WINOUT=1
             SET HB_TR_OUTPUT=hb_trace_dbg.log
+            SET HB_BUILD_SHARED=yes
             SET CFLAGS=-DHB_TR_LEVEL_DEBUG
             rem ============================================================================
             SET HB_CPU=
@@ -55,6 +57,7 @@ SETLOCAL ENABLEEXTENSIONS
             SET HB_TR_WINOUT=1
             SET HB_TR_OUTPUT=hb_trace_dbg.log
             SET CFLAGS=-DHB_TR_LEVEL_DEBUG
+            SET HB_BUILD_SHARED=yes
             rem ============================================================================
             SET HB_CPU=
             SET HB_CCPATH=

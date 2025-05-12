@@ -29,6 +29,7 @@ SETLOCAL ENABLEEXTENSIONS
         SET HB_PLATFORM=win
         SET HB_COMPILER=msvc
         SET HB_CCPATH=%msvc_PATH%
+        SET HB_BUILD_SHARED=yes
         ..\..\core\bin\win\msvc\hbmk2 -plat=win -cpu=x86_64 -jobs=10 -cpp -compr=no  -comp=msvc -hbcppmm- ..\hbp\_tbigNumber.hbp
         ..\..\core\bin\win\msvc\hbmk2 -plat=win -cpu=x86_64 -jobs=10 -cpp -compr=max -comp=msvc -hbcppmm- -gui ..\hbp\tBigNtst.hbp
     D:

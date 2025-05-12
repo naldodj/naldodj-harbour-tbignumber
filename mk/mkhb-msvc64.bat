@@ -9,29 +9,24 @@ SETLOCAL ENABLEEXTENSIONS
     )
     SET > env_msvc64.txt
         SET HB_PATH=D:\GitHub\core\
-        IF EXIST "c:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" (
+        IF EXIST "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvarsall.bat" (
+            CALL "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvarsall.bat" X64
+            SET msvc64_PATH="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\bin\Hostx64\x64"
+        ) ELSE IF EXIST "c:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" (
             CALL "c:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" X64
             SET msvc64_PATH="C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin"
-            SET msvc64_PATH
         ) ELSE IF EXIST "c:\Program Files (x86)\Microsoft Visual Studio 13.0\VC\vcvarsall.bat" (
             CALL "c:\Program Files (x86)\Microsoft Visual Studio 13.0\VC\vcvarsall.bat" X64
             SET msvc64_PATH="C:\Program Files (x86)\Microsoft Visual Studio 13.0\VC\bin"
-            SET msvc64_PATH
         ) ELSE IF EXIST "c:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" (
             CALL "c:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" X64
             SET msvc64_PATH="C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin"
-            SET msvc64_PATH
         ) ELSE IF EXIST "c:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\vcvarsall.bat" (
             CALL "c:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\vcvarsall.bat" X64
             SET msvc64_PATH="C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin"
-            SET msvc64_PATH
         ) ELSE IF EXIST "c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\vcvarsall.bat" (
             CALL "c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\vcvarsall.bat" X64
             SET msvc64_PATH="C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin"
-            SET msvc64_PATH
-        ) ELSE (
-            SET msvc64_PATH=""
-            SET msvc64_PATH
         )
         SET PATH=%msvc64_PATH%;%HB_PATH%;%PATH%;
         SET PATH
@@ -43,6 +38,7 @@ SETLOCAL ENABLEEXTENSIONS
         SET HB_COMPILER
         SET HB_CCPATH=%msvc64_PATH%
         SET HB_CCPATH
+        SET HB_BUILD_SHARED=yes
         IF EXIST D:\OpenSSL (
             IF EXIST D:\OpenSSL\INC32 (
                 SET HB_WITH_OPENSSL=D:\OpenSSL\INC32

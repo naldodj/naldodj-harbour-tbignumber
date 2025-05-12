@@ -3,6 +3,29 @@
    Entries may not always be in chronological/commit order.
    See license at the end of file. */
 
+2025-05-11 22:47 UTC Naldo DJ
+  - mk/dir
+  * mk/__mkhb-msvc.bat
+  * mk/__mkhb-msvc64.bat
+  * mk/mk-msvc.bat
+  * mk/mk-msvc64.bat
+  * mk/mk.bat
+  * mk/mk64.bat
+  * mk/mkall-trace.bat
+  * mk/mkall.bat
+  * mk/mkalllib.bat
+  * mk/mkarm.bat
+  * mk/mkhb-msvc.bat
+  * mk/mkhb-msvc64.bat
+  * mk/mkhb64.bat
+  * mk/mkhb64vz.bat
+  * mk/mkhball-trace.bat
+  * mk/mkhball.bat
+  * mk/mklib-msvc.bat
+  * mk/mklib-msvc64.bat
+  * mk/mklib.bat
+  * mk/mklib64.bat
+
 2024-12-24 11:10 UTC Naldo DJ
   * hbp/_tbignumber.hbp
   * hbp/tbigntst.hbp
