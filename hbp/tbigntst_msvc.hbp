@@ -1,0 +1,33 @@
+# tBigNumber test - MSVC build
+
+-D__TBIGN_RECPOWER__
+-D__HB_TBIGNPOWER__
+-D__TBN_DIVMETHOD__=2
+
+-DHBMK_WITH_BUILTIN_HEADERS_ALL
+
+-mt
+-w3
+-es2
+
+# Harbour contrib
+hbct.hbc
+hbexpat.hbc
+hbmemio.hbc
+hbmzip.hbc
+hbnetio.hbc
+hbwin.hbc
+hbfship.hbc
+xhb.hbc
+
+{win}-lucrt
+{win}hbwin.hbc
+{win}-ldflag=/NODEFAULTLIB:msvcrt
+{win}-ldflag+=/NODEFAULTLIB:libucrt
+
+-i../include
+-i../../core/contrib/xhb
+
+../src/tests/tbigntst.prg
+
+-o../exe/${hb_plat}/${hb_comp}/${hb_name}
