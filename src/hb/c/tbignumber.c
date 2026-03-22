@@ -91,15 +91,8 @@
             char * cDivR;
         } stBIGNeDiv,* ptBIGNeDiv;
 
-        template <typename tTO_STRING>
-        static std::string to_string(tTO_STRING const &value){
-            std::stringstream sstr;
-            sstr.precision(std::numeric_limits<long double>::digits10+100);
-            sstr<<std::fixed<<value;
-            return sstr.str();
-        }
-
         static char cNumber(const HB_SIZE iNumber);
+        static char * tbig_to_string_long_double(long double value);
         static HB_SIZE iNumber(const char * cNumber);
         static char * do_pad( int iSwitch, const char * pcString, HB_SIZE nRetLen , const char cFill);
         static char * tBIGNPadL(const char * szItem,HB_SIZE nLen,const char * szPad);
@@ -132,6 +125,20 @@
             return(cNumber);
         }
 
+        static char * tbig_to_string_long_double(long double value)
+        {
+            int prec = LDBL_DIG + 100;
+
+            /* calcula tamanho do buffer */
+            int len = snprintf(NULL, 0, "%.*Lf", prec, value);
+
+            char *buf = (char *) hb_xgrab(len + 1);
+
+            snprintf(buf, len + 1, "%.*Lf", prec, value);
+
+            return buf;
+        }
+
         static HB_SIZE iNumber(const char * cNumber){
 
             const char cN=*(cNumber);
@@ -145,7 +152,7 @@
             else
             {
 
-                int j=(-1);
+                HB_SIZE j = (HB_SIZE) -1;
 
                 if (isalpha(cN))
                 {
@@ -2087,7 +2094,7 @@
               long double ldArg=strtold(hb_parc(1),NULL);
               if (ldArg<=0)
               {
-                std::string str=to_string(0.0);
+                std::string str=tbig_to_string_long_double(0.0);
                 char * cstr=(char*)hb_xgrabz(( HB_SIZE )str.length()+1);
                 std::strcpy(cstr,str.c_str());
                 #if 0
@@ -2103,7 +2110,7 @@
                     ldResult=sqrtl(ldArg);
                     if( hb_mathGetError(&hb_exc,"SQRTL",(double)ldArg,0.0,(double)ldResult))
                     {
-                        std::string str=to_string(0.0);
+                        std::string str=tbig_to_string_long_double(0.0);
                         char * cstr=(char*)hb_xgrabz(( HB_SIZE )str.length()+1);
                         std::strcpy(cstr,str.c_str());
                         #if 0
@@ -2115,7 +2122,7 @@
                     }
                     else
                     {
-                        std::string str=to_string(ldResult);
+                        std::string str=tbig_to_string_long_double(ldResult);
                         char * cstr=(char*)hb_xgrabz(( HB_SIZE )str.length()+1);
                         std::strcpy(cstr,str.c_str());
                         #if 0
@@ -2129,7 +2136,7 @@
            }
            else
            {
-                std::string str=to_string(0.0);
+                std::string str=tbig_to_string_long_double(0.0);
                 char * cstr=(char*)hb_xgrabz(( HB_SIZE )str.length()+1);
                 std::strcpy(cstr,str.c_str());
                 #if 0
@@ -2153,7 +2160,7 @@
                 ldResult=(log10l(ldArgN)/log10l(ldArgB));
                 if( hb_mathGetError(&hb_exc,"LOG10L",(double)ldArgN,(double)ldArgB,(double)ldResult))
                 {
-                    std::string str=to_string(0.0);
+                    std::string str=tbig_to_string_long_double(0.0);
                     char * cstr=(char*)hb_xgrabz(( HB_SIZE )str.length()+1);
                     std::strcpy(cstr,str.c_str());
                     #if 0
@@ -2165,10 +2172,10 @@
                 }
                 else
                 {
-                    std::string str=to_string(ldResult);
+                    std::string str=tbig_to_string_long_double(ldResult);
                     if (str.find("inf")!=std::string::npos||str.find("nan")!=std::string::npos)
                     {
-                        str=to_string(0.0);
+                        str=tbig_to_string_long_double(0.0);
                     }
                     char * cstr=(char*)hb_xgrabz(( HB_SIZE )str.length()+1);
                     std::strcpy(cstr,str.c_str());
@@ -2182,7 +2189,7 @@
            }
            else
            {
-                std::string str=to_string(0.0);
+                std::string str=tbig_to_string_long_double(0.0);
                 char * cstr=(char*)hb_xgrabz(( HB_SIZE )str.length()+1);
                 std::strcpy(cstr,str.c_str());
                 #if 0

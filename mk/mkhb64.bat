@@ -15,6 +15,7 @@ SETLOCAL ENABLEEXTENSIONS
         SET HB_PLATFORM=win
         SET HB_COMPILER=mingw64
         SET HB_CCPATH=%MinGW64_PATH%
+        SET HB_BUILD_SHARED=yes
         IF EXIST D:\OpenSSL64 (
             IF EXIST D:\OpenSSL64\INC32 (
                 SET HB_WITH_OpenSSL64=D:\OpenSSL64\INC32

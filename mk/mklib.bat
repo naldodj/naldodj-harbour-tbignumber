@@ -15,6 +15,7 @@ SETLOCAL ENABLEEXTENSIONS
         SET HB_CPU=x86
         SET HB_PLATFORM=win
         SET HB_COMPILER=mingw
+        SET HB_BUILD_SHARED=yes
         SET HB_CCPATH=%MinGW_PATH%
             %HB_PATH%bin\win\mingw\hbmk2.exe -plat=win -cpu=x86 -jobs=10 -cpp -compr=no -comp=mingw -xhb ..\hbp\_tbigNumber.hbp
             %HB_PATH%bin\win\mingw\hbmk2.exe -plat=win -cpu=x86 -jobs=10 -cpp -compr=no -comp=mingw -xhb ..\hbp\_tbigNumber_array.hbp

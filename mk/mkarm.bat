@@ -6,6 +6,7 @@ SETLOCAL ENABLEEXTENSIONS
     SET _HB_PATH=%HB_PATH%
     SET _cygwin_PATH=%cygwin_PATH%
     SET HB_PATH=d:\hb32\
+    SET HB_BUILD_SHARED=yes
     SET cygwin_PATH=d:\cygwin\
     SET CYGWIN=nodosfilewarning
     SET PATH=%HB_PATH%bin\

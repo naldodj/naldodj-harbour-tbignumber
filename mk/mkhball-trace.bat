@@ -17,6 +17,7 @@ SETLOCAL ENABLEEXTENSIONS
             SET HB_TR_WINOUT=1
             SET HB_TR_OUTPUT=hb_trace_dbg.log
             SET CFLAGS=-DHB_TR_LEVEL_DEBUG
+            SET HB_BUILD_SHARED=yes
             rem ============================================================================
             SET HB_CPU=
             SET HB_CCPATH=

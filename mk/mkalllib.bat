@@ -13,6 +13,7 @@ SETLOCAL ENABLEEXTENSIONS
             SET HB_PLATFORM=
             SET HB_COMPILER=
             SET HB_CCPATH=
+            SET HB_BUILD_SHARED=
             call mkLib.bat
             for /f %%e in (env_mkallLib.txt) do (
                 SET %%e
@@ -23,11 +24,13 @@ SETLOCAL ENABLEEXTENSIONS
             SET HB_PLATFORM=
             SET HB_COMPILER=
             SET HB_CCPATH=
+            SET HB_BUILD_SHARED=
             call mkLib64.bat
             SET HB_CPU=
             SET HB_PLATFORM=
             SET HB_COMPILER=
             SET HB_CCPATH=
+            SET HB_BUILD_SHARED=
             for /f %%e in (env_mkallLib.txt) do (
                 SET %%e
             )

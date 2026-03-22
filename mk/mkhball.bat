@@ -20,6 +20,7 @@ SETLOCAL ENABLEEXTENSIONS
             SET HB_TR_SYSOUT=
             SET HB_TR_WINOUT=
             SET HB_TR_OUTPUT=
+            SET HB_BUILD_SHARED=
             call mkHB.bat %1
             for /f %%e in (env_mkHBall.txt) do (
                 SET %%e
@@ -37,6 +38,7 @@ SETLOCAL ENABLEEXTENSIONS
             SET HB_TR_SYSOUT=
             SET HB_TR_WINOUT=
             SET HB_TR_OUTPUT=
+            SET HB_BUILD_SHARED=
             call mkHB64.bat %1
             SET HB_CPU=
             SET CFLAGS=
@@ -49,6 +51,7 @@ SETLOCAL ENABLEEXTENSIONS
             SET HB_TR_SYSOUT=
             SET HB_TR_WINOUT=
             SET HB_TR_OUTPUT=
+            SET HB_BUILD_SHARED=
             for /f %%e in (env_mkHBall.txt) do (
                 SET %%e
             )
